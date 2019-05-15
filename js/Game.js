@@ -11,7 +11,9 @@ class Game {
      * Gets game ready to play
      */
     startGame() {
-
+        this.board.drawHTMLBoard();
+        this.activePlayer.activeToken.drawHTMLToken();
+        this.ready = true;
     }
 
     /**
@@ -24,5 +26,13 @@ class Game {
         players.push(new Player('Player 2', 2, '#e59a13'));
 
         return players;
+    }
+
+    /**
+     * Returns active player
+     * @return {object} Active player
+     */
+    get activePlayer() {
+        return this.players.find(player => player.active);
     }
 }
