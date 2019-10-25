@@ -6,7 +6,6 @@ class Game {
 
     }
 
-
     /**
      * Gets game ready to play
      */
@@ -71,6 +70,17 @@ class Game {
         if (targetSpace !== null) {
             game.ready = false;
             activeToken.drop(targetSpace);
+        }
+    }
+
+    /**
+     * Switches active player.
+     */
+    switchPlayers() {
+
+        for (let player in this.players) {
+            // Toggle boolean value
+            player.active = !player.active;
         }
     }
 
